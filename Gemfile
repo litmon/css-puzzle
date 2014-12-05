@@ -1,10 +1,34 @@
 source 'https://rubygems.org'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+group :test, :development do
+  gem 'sqlite3'
+  gem 'byebug'
+  gem 'hirb'
+  gem 'hirb-unicode'
+end
+
+group :production do
+  # gem 'postglesql'
+end
+
+gem 'devise', '~> 3.2.4'
+
+# active_admin
+gem 'activeadmin', git: 'https://github.com/gregbell/active_admin.git'
+gem 'active_admin_environment'
+
+# pry
+gem 'pry', '~> 0.10.0'
+gem 'pry-byebug', '~> 1.3.3'
+gem 'pry-rails'
+gem 'pry-stack_explorer'
+
+# slim
+gem 'slim', '~> 2.0.3'
+gem 'slim-rails', '~> 2.1.5'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
