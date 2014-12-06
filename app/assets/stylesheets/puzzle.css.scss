@@ -136,13 +136,13 @@ input{
 		content: 'START';
 		color: $blue;
 	}
-	.element{
-		font-size: 20px;
-		border-width: 0;
-		border-style: double;
-		border-color: #000;
-		border-radius: 0;
-	}
+	// .element{
+	// 	font-size: 20px;
+	// 	border-width: 0;
+	// 	border-style: double;
+	// 	border-color: #000;
+	// 	border-radius: 0;
+	// }
 	
 }
 
@@ -153,13 +153,13 @@ input{
 		color: $red;
 		content: 'GOAL';
 	}
-	.element{
-		font-size: 30px;
-		border-width: 3px;
-		border-style: solid;
-		border-color: #ff3333;
-		border-radius: 6px;
-	}
+	// .element{
+	// 	font-size: 30px;
+	// 	border-width: 3px;
+	// 	border-style: solid;
+	// 	border-color: #ff3333;
+	// 	border-radius: 6px;
+	// }
 }
 
 #html{
