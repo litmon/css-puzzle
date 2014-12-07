@@ -14,7 +14,7 @@ var goals = [
 ]
 
 $(function () {
-  complete = $('#complete .element');
+  complete = $('#ans .element');
   present = $('#present .element');
 
   initialize();
@@ -67,10 +67,29 @@ function initialize () {
     frm.append(quiz);
     
   }
+  var style = "";
   for (var i = 0; i < goals.length; i++) {
     complete.css(goals[i].property, goals[i].value);
-    
+    style += goals[i].property + ':' + goals[i].value + ';';
   };
+  var canvas = document.getElementById("complete");
+  var ctx = canvas.getContext("2d");
+  var data = "<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'>" +
+               "<foreignObject width='100%' height='100%'>" +
+                 "<div xmlns='http://www.w3.org/1999/xhtml' style='padding:16px;'>" +
+                   "<div style='"+style+"font-family:\"Hiragino Kaku Gothic Pro\";'>てきすと</div>" +
+                 "</div>" +
+               "</foreignObject>" +
+             "</svg>";
+  var DOMURL = self.URL || self.webkitURL || self;
+  var img = new Image();
+  var svg = new Blob([data], {type: "image/svg+xml;charset=utf-8"});
+  var url = DOMURL.createObjectURL(svg);
+  img.onload = function() {
+      ctx.drawImage(img, 0, 0);
+      DOMURL.revokeObjectURL(url);
+  };
+  img.src = url;
 }
 
 function check (property) {

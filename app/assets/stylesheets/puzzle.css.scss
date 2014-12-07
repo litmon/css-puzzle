@@ -111,12 +111,11 @@ input{
 
 .preview{
 	width: 600px;
-	height: 100%;
 	float: left;
 }
 
 .box{
-	height: 50%;
+	height: 300px;
 	padding: 16px;
 	box-sizing: border-box;
 	width: 100%;
@@ -136,13 +135,9 @@ input{
 		content: 'START';
 		color: $blue;
 	}
-	// .element{
-	// 	font-size: 20px;
-	// 	border-width: 0;
-	// 	border-style: double;
-	// 	border-color: #000;
-	// 	border-radius: 0;
-	// }
+	.element{
+		
+	}
 	
 }
 
@@ -152,14 +147,12 @@ input{
 	&:before{
 		color: $red;
 		content: 'GOAL';
+		font-family: 'Leckerli One', cursive;
+		position: absolute;
+		font-size: 24px;
+		top: -34px;
+		left: 0;
 	}
-	// .element{
-	// 	font-size: 30px;
-	// 	border-width: 3px;
-	// 	border-style: solid;
-	// 	border-color: #ff3333;
-	// 	border-radius: 6px;
-	// }
 }
 
 #html{
@@ -177,4 +170,8 @@ input{
 	width: 50%;
 	font-size: 26px;
 	min-height: 50%;
+}
+
+#ans{
+	display: none;
 }
