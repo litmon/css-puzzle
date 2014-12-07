@@ -6,4 +6,12 @@
         - @property.errors.full_messages.each do |message|
           li = message
 
+  .field
+    = f.label :name, '属性名'
+    = f.text_field :name
+
+  .field
+    = f.label :value, '値'
+    = f.text_field :value
+
   .actions = f.submit 'Save'

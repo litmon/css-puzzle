@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: puzzles
+#
+#  id          :integer          not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  title       :string(255)
+#  description :text
+#  property_id :integer
+#
+
 require 'test_helper'
 
 class PuzzleTest < ActiveSupport::TestCase
