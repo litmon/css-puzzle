@@ -13,6 +13,16 @@ group :production do
   # gem 'postglesql'
 end
 
+group :development do
+  gem 'better_errors'
+  gem 'annotate', require: false
+end
+
+group :test do
+  gem 'rspec-rails', '~> 3.1.0', require: false
+  gem 'factory_girl_rails', '~> 4.4.1'
+end
+
 gem 'devise', '~> 3.2.4'
 
 # active_admin
