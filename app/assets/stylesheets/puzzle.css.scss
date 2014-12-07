@@ -69,7 +69,7 @@ h1{
 		color: #555;
 	}
 }
-
+#puzzle{
 label{
 	margin-left: 32px;
 	&:after{
@@ -174,4 +174,5 @@ input{
 
 #ans{
 	display: none;
+}
 }
