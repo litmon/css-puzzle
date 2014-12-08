@@ -2,11 +2,12 @@
 #
 # Table name: properties
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime
-#  updated_at :datetime
-#  name       :string(255)
-#  value      :string(255)
+#  id          :integer          not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  name        :string(255)
+#  value       :string(255)
+#  selector_id :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
