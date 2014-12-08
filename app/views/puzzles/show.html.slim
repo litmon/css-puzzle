@@ -1,0 +1,17 @@
+
+div.puzzle-description[style="color:#fff;font-size: 20px"]
+  p = "id: #{@puzzle.id}"
+  p = "title: #{@puzzle.title}"
+  p = "description: #{@puzzle.description}"
+  
+  div.styles
+    - @puzzle.styles.each do |style|
+      div.style[style="background-color:#005276"]
+        p = "state: #{style.state}"
+        div.selectors
+         - style.selectors.each do |selector|
+           p = "#{selector.name}{"
+           div.properties
+             - selector.properties.each do |property|
+               p = "#{property.name}: #{property.value};"
+           p = "}"

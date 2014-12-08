@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208082622) do
+ActiveRecord::Schema.define(version: 20141208125702) do
 
   create_table "properties", force: true do |t|
     t.datetime "created_at"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20141208082622) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "style_id"
   end
 
   create_table "selectors", force: true do |t|
@@ -39,7 +38,6 @@ ActiveRecord::Schema.define(version: 20141208082622) do
   create_table "styles", force: true do |t|
     t.integer  "puzzle_id"
     t.integer  "state"
-    t.integer  "selector_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

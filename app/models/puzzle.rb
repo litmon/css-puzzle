@@ -12,7 +12,7 @@
 
 class Puzzle < ActiveRecord::Base
   has_many :styles
-  accepts_nested_attributes_for :styles
+  accepts_nested_attributes_for :styles, limit: 2
 
   validates :title, uniqueness: true
 end
