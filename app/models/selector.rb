@@ -11,4 +11,9 @@
 #
 
 class Selector < ActiveRecord::Base
+  belongs_to :style
+  has_many :properties
+  accepts_nested_attributes_for :properties
+
+  validates :name, presence: true
 end

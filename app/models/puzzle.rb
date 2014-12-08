@@ -11,4 +11,8 @@
 #
 
 class Puzzle < ActiveRecord::Base
+  has_many :styles
+  accepts_nested_attributes_for :styles
+
+  validates :title, uniqueness: true
 end

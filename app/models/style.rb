@@ -11,4 +11,11 @@
 #
 
 class Style < ActiveRecord::Base
+  belongs_to :puzzle
+  has_many :selectors
+  accepts_nested_attributes_for :selectors
+
+  validates :state, presence: true
+
+  enum state: %i(init goal)
 end

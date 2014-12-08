@@ -11,5 +11,6 @@
 #
 
 class Property < ActiveRecord::Base
+  belongs_to :selector
   validates :name, :value, presence: true
 end
