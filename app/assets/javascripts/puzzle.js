@@ -17,9 +17,7 @@ $(function () {
   complete = $('#ans .element');
   present = $('#present .element');
 
-  initialize();
-
-  $('#editor input').eq(0).focus();
+  var init = initialize();
 
   $(document).on('focus', '.property', function() {
     $('.property').each(function(index, el) {
@@ -34,22 +32,18 @@ $(function () {
     present.css(property, value);
     if(check(property)){
       $(this).find('input').attr("disabled", "disabled");
-      console.log('correct');
       $(this).addClass('correct').find('label').before('<i class="fa fa-star">');
       $(this).next().find('input').focus();
       correct++;
-      console.log(correct);
       if (correct == clear) {
         alert('CLEAR!');
       };
-    }
-    else{
-      console.log('try again');
     }
   });
 });
 
 function initialize () {
+  var d = new $.Deferred;
   var frm = $('#editor form');
   clear = starts.length;
   console.log(starts.length);
@@ -74,7 +68,7 @@ function initialize () {
   };
   var canvas = document.getElementById("complete");
   var ctx = canvas.getContext("2d");
-  var data = "<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'>" +
+  var data = "<svg xmlns='http://www.w3.org/2000/svg' width='580' height='250'>" +
                "<foreignObject width='100%' height='100%'>" +
                  "<div xmlns='http://www.w3.org/1999/xhtml' style='padding:16px;'>" +
                    "<div style='"+style+"font-family:\"Hiragino Kaku Gothic Pro\";'>てきすと</div>" +
@@ -90,6 +84,9 @@ function initialize () {
       DOMURL.revokeObjectURL(url);
   };
   img.src = url;
+  $('#editor input').eq(0).focus();
+  $('#editor .property').eq(0).addClass('focus');
+  return d.promise();
 }
 
 function check (property) {
