@@ -17,9 +17,12 @@ $(function () {
   complete = $('#ans .element');
   present = $('#present .element');
 
-  initialize();
+  var init = initialize();
+  init.done(function(values) {
+    
+  });
 
-  $('#editor input').eq(0).focus();
+  
 
   $(document).on('focus', '.property', function() {
     $('.property').each(function(index, el) {
@@ -50,6 +53,7 @@ $(function () {
 });
 
 function initialize () {
+  var d = new $.Deferred;
   var frm = $('#editor form');
   clear = starts.length;
   console.log(starts.length);
@@ -90,6 +94,9 @@ function initialize () {
       DOMURL.revokeObjectURL(url);
   };
   img.src = url;
+  $('#editor input').eq(0).focus();
+  $('#editor .property').eq(0).addClass('focus');
+  return d.promise();
 }
 
 function check (property) {
