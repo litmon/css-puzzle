@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207054237) do
+ActiveRecord::Schema.define(version: 20141208050829) do
 
   create_table "properties", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.string   "value"
+    t.integer  "selector_id"
   end
 
   create_table "puzzles", force: true do |t|
@@ -25,7 +26,23 @@ ActiveRecord::Schema.define(version: 20141207054237) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
+    t.integer  "style_id"
+  end
+
+  create_table "selectors", force: true do |t|
+    t.integer  "style_id"
+    t.string   "name"
     t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "styles", force: true do |t|
+    t.integer  "puzzle_id"
+    t.integer  "state"
+    t.integer  "selector_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

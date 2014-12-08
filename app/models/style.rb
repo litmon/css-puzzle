@@ -1,14 +1,14 @@
 # == Schema Information
 #
-# Table name: puzzles
+# Table name: styles
 #
 #  id          :integer          not null, primary key
+#  puzzle_id   :integer
+#  state       :integer
+#  selector_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
-#  title       :string(255)
-#  description :text
-#  style_id    :integer
 #
 
-class Puzzle < ActiveRecord::Base
+class Style < ActiveRecord::Base
 end
