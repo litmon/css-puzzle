@@ -18,11 +18,6 @@ $(function () {
   present = $('#present .element');
 
   var init = initialize();
-  init.done(function(values) {
-    
-  });
-
-  
 
   $(document).on('focus', '.property', function() {
     $('.property').each(function(index, el) {
