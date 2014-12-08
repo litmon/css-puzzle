@@ -1,2 +1,4 @@
-class PuzzleController < ApplicationController
+class PuzzlesController < ApplicationController
+	def index
+	end
 end
