@@ -9,10 +9,18 @@ class PuzzlesController < ApplicationController
 
   def new
     @puzzle = Puzzle.new
+    2.times do
+        @puzzle.styles.build
+    end
   end
 
   def create
     @puzzle = Puzzle.new(puzzle_params)
+    if @puzzle.save
+      redirect_to puzzles_path
+    else
+      render action: :new
+    end
   end
 
   def delete
@@ -28,7 +36,7 @@ class PuzzlesController < ApplicationController
   private
 
   def puzzle_params
-    params.require(:puzzle).permit()
+    params.require(:puzzle).permit(:title, :description, styles_attributes: [:state, selectors_attributes: [:name, properties_attributes: [:name, :value]]])
   end
 
 end

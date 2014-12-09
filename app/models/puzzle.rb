@@ -7,11 +7,10 @@
 #  updated_at  :datetime
 #  title       :string(255)
 #  description :text
-#  style_id    :integer
 #
 
 class Puzzle < ActiveRecord::Base
-  has_many :styles
+  has_many :styles, dependent: :destroy
   accepts_nested_attributes_for :styles, limit: 2
 
   validates :title, uniqueness: true

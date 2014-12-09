@@ -1,0 +1,44 @@
+= form_for @puzzle do |f|
+  - if @puzzle.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@puzzle.errors.count, "error")} prohibited this property from being saved:"
+      ul
+        - @puzzle.errors.full_messages.each do |message|
+          li = message
+  .field
+    = f.label :title, 'Puzzle名'
+    = f.text_field :title
+
+  .field
+    = f.label :description, '説明'
+    = f.text_field :description
+
+  - @puzzle.styles.each_with_index do |style, idx| 
+    
+    = f.fields_for :styles, style do |f_style|
+      .field
+        = f_style.label :state, Style.states.keys[idx]
+        = f_style.hidden_field :state, value: Style.states.keys[idx]
+
+      = f_style.fields_for :selectors_attributes do |f_selector|
+
+        .field
+          = f_selector.label :name, 'セレクタ名'
+          = f_selector.text_field :name
+
+        = f_selector.fields_for :properties_attributes do |f_property|
+
+          .field
+            = f_property.label :name, 'プロパティ名'
+            = f_property.text_field :name
+
+          .field
+            = f_property.label :value, '値'
+            = f_property.text_field :value
+
+
+
+
+
+
+  .actions = f.submit 'Save'
