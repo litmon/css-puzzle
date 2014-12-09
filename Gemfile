@@ -10,7 +10,8 @@ group :test, :development do
 end
 
 group :production do
-  # gem 'postglesql'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development do
@@ -23,7 +24,10 @@ group :test do
   gem 'factory_girl_rails', '~> 4.4.1'
 end
 
+# devise
 gem 'devise', '~> 3.2.4'
+gem 'omniauth'
+gem 'omniauth-github'
 
 # active_admin
 gem 'activeadmin', git: 'https://github.com/gregbell/active_admin.git'
