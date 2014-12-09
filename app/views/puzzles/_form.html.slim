@@ -13,20 +13,20 @@
     = f.label :description, '説明'
     = f.text_field :description
 
-  - @puzzle.styles.each_with_index do |style, idx| 
-    
+  - @puzzle.styles.each_with_index do |style, idx|
+
     = f.fields_for :styles, style do |f_style|
       .field
         = f_style.label :state, Style.states.keys[idx]
         = f_style.hidden_field :state, value: Style.states.keys[idx]
 
-      = f_style.fields_for :selectors_attributes do |f_selector|
+      = f_style.fields_for :selectors do |f_selector|
 
         .field
           = f_selector.label :name, 'セレクタ名'
           = f_selector.text_field :name
 
-        = f_selector.fields_for :properties_attributes do |f_property|
+        = f_selector.fields_for :properties do |f_property|
 
           .field
             = f_property.label :name, 'プロパティ名'

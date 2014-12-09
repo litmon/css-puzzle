@@ -12,6 +12,13 @@ class PuzzlesController < ApplicationController
     2.times do
         @puzzle.styles.build
     end
+
+    @puzzle.styles.each do |style|
+      style.selectors.build
+      style.selectors.each do |selector|
+        selector.properties.build
+      end
+    end
   end
 
   def create
