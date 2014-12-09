@@ -8,7 +8,7 @@ nav
     #present
       .element てきすと
     h2#goal GOAL
-    canvas#complete width="600" height="300"
+    canvas#complete[width="580" height="250"]
   h2#css CSS
   #editor
     div div {
@@ -19,3 +19,6 @@ nav
     div &lt;div&gt;てきすと&lt;/div&gt;
   #ans
     .element
+  javascript:
+    starts = #{raw @init.to_json}
+    goals = #{raw @goal.to_json}

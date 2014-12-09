@@ -1,6 +1,9 @@
 class PuzzlesController < ApplicationController
   def index
-    @puzzles = Puzzle.all
+    puzzles_length = Puzzle.all.size
+    @puzzle = Puzzle.find(rand(puzzles_length) + 1)
+    @init = @puzzle.styles.where(state: 0).first.selectors.first.properties.all
+    @goal = @puzzle.styles.where(state: 1).first.selectors.first.properties.all
   end
 
   def show
