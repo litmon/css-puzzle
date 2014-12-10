@@ -46,7 +46,6 @@ body,html{
 body{
 	margin: 0;
 	width: 100%;
-	background: #333;
 }
 
 .container{
@@ -54,6 +53,10 @@ body{
 	height: 100%;
 	padding-top: 52px;
 	box-sizing: border-box;
+}
+
+#puzzle{
+	background: #333;
 }
 nav{
 	height: 52px;
@@ -182,4 +185,11 @@ input{
 #ans{
 	display: none;
 }
+}
+
+#puzzles-form{
+
+
+
+
 }

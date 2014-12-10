@@ -80,5 +80,6 @@ end
 
 gem "font-awesome-rails"
 
-gem 'underscore-rails'
+gem 'vuejs-rails'
+
 
