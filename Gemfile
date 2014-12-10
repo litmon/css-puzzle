@@ -9,10 +9,6 @@ group :test, :development do
   gem 'hirb-unicode'
 end
 
-group :production do
-  # gem 'postglesql'
-end
-
 group :development do
   gem 'better_errors'
   gem 'annotate', require: false
@@ -23,7 +19,19 @@ group :test do
   gem 'factory_girl_rails', '~> 4.4.1'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+gem 'dotenv-rails'
+
+# devise
 gem 'devise', '~> 3.2.4'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 # active_admin
 gem 'activeadmin', git: 'https://github.com/gregbell/active_admin.git'

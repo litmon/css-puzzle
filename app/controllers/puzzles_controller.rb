@@ -12,9 +12,9 @@ class PuzzlesController < ApplicationController
 
   def new
     @puzzle = Puzzle.new
-    2.times do
-        @puzzle.styles.build
-    end
+
+    @puzzle.styles.build(state: :init)
+    @puzzle.styles.build(state: :goal)
 
     @puzzle.styles.each do |style|
       style.selectors.build
