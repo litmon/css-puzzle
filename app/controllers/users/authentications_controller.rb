@@ -23,8 +23,7 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   end
 
   def callback
-    
-     
+    render text: omniauth    
   end
 
 end
