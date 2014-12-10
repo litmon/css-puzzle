@@ -1,27 +1,24 @@
 nav
 
-  h1
-    = fa_icon "puzzle-piece"
-    span.red C
-    span.blue S
-    span.green S
-    span.yellow P
-    span.orange u
-    span.purple z
-    span.red z
-    span.blue l
-    span.green e
+  h1 CSS Puzzle
 
 .container#puzzle
   .preview
-    .box#present
+    h2#start START
+    #present
       .element てきすと
-    canvas#complete width="600" height="300"
+    h2#goal GOAL
+    canvas#complete[width="580" height="250"]
+  h2#css CSS
   #editor
     div div {
     form
     div }
+  h2 HTML
   #html
     div &lt;div&gt;てきすと&lt;/div&gt;
   #ans
     .element
+  javascript:
+    starts = #{raw @init.to_json}
+    goals = #{raw @goal.to_json}

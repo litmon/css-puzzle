@@ -2,22 +2,22 @@ var complete, present;
 var correct=0,clear=0;
 
 var starts = [
-  {"property":'font-size',"value":"20px"},
-  {"property":'border',"value":"1px double #000"},
-  {"property":'border-radius',"value":"0"}
+  {"name":'font-size',"value":"20px"},
+  {"name":'border',"value":"1px double #000"},
+  {"name":'border-radius',"value":"0"}
 ]
 
 var goals = [
-  {"property":'font-size',"value":"30px"},
-  {"property":'border',"value":"3px solid #f99"},
-  {"property":'border-radius',"value":"6px"}
+  {"name":'font-size',"value":"30px"},
+  {"name":'border',"value":"3px solid #f99"},
+  {"name":'border-radius',"value":"6px"}
 ]
 
 $(function () {
   complete = $('#ans .element');
   present = $('#present .element');
 
-  var init = initialize();
+  initialize();
 
   $(document).on('focus', '.property', function() {
     $('.property').each(function(index, el) {
@@ -48,9 +48,9 @@ function initialize () {
   clear = starts.length;
   console.log(starts.length);
   for (var i = 0; i < starts.length; i++) {
-    present.css(starts[i].property, starts[i].value);
+    present.css(starts[i].name, starts[i].value);
     var id = "q"+i;
-    var label = $('<label>').attr('for', id).text(starts[i].property);
+    var label = $('<label>').attr('for', id).text(starts[i].name);
     var input = $('<input>').attr({
       type: 'text',
       value: starts[i].value,
@@ -63,14 +63,15 @@ function initialize () {
   }
   var style = "";
   for (var i = 0; i < goals.length; i++) {
-    complete.css(goals[i].property, goals[i].value);
-    style += goals[i].property + ':' + goals[i].value + ';';
+    complete.css(goals[i].name, goals[i].value);
+    style += goals[i].name + ':' + goals[i].value + ' !important;';
   };
+  console.log(style)
   var canvas = document.getElementById("complete");
   var ctx = canvas.getContext("2d");
   var data = "<svg xmlns='http://www.w3.org/2000/svg' width='580' height='250'>" +
                "<foreignObject width='100%' height='100%'>" +
-                 "<div xmlns='http://www.w3.org/1999/xhtml' style='padding:16px;'>" +
+                 "<div xmlns='http://www.w3.org/1999/xhtml' style='padding:16px;font-size:20px;'>" +
                    "<div style='"+style+"font-family:\"Hiragino Kaku Gothic Pro\";'>てきすと</div>" +
                  "</div>" +
                "</foreignObject>" +
@@ -86,7 +87,6 @@ function initialize () {
   img.src = url;
   $('#editor input').eq(0).focus();
   $('#editor .property').eq(0).addClass('focus');
-  return d.promise();
 }
 
 function check (property) {

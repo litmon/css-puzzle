@@ -5,14 +5,13 @@
 #  id          :integer          not null, primary key
 #  puzzle_id   :integer
 #  state       :integer
-#  selector_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #
 
 class Style < ActiveRecord::Base
   belongs_to :puzzle
-  has_many :selectors
+  has_many :selectors, dependent: :destroy
   accepts_nested_attributes_for :selectors
 
   validates :state, presence: true
