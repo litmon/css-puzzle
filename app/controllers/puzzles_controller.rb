@@ -1,4 +1,5 @@
 class PuzzlesController < ApplicationController
+
   def index
     puzzles_length = Puzzle.all.size
     @puzzle = Puzzle.find(rand(puzzles_length) + 1)

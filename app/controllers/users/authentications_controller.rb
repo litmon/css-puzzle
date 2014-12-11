@@ -1,15 +1,15 @@
 class Users::AuthenticationsController < Devise::OmniauthCallbacksController
 
   def twitter
-    callback
+    redirect_to_next
   end
 
   def facebook
-    callback
+    redirect_to_next
   end
 
   def github
-    callback
+    redirect_to_next
   end
 
   private
@@ -19,11 +19,19 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   end
 
   def authentication
-    @authentication ||= Authenticaiton.find_by(provider: omniauth[:provider], uid: omniauth[:uid])
+    @authentication ||= Authentication.find_by(provider: omniauth[:provider], uid: omniauth[:uid])
   end
 
-  def callback
-    render text: omniauth    
+  def redirect_to_next
+    if authentication
+      sign_in(authentication.user)
+      redirect_to root_path, notice: "User signed in."
+    elsif user_signed_in?
+      redirect_to root_path, notice: "User has signed in."
+    else
+      session[:omniauth] = omniauth
+      redirect_to new_user_registration_path
+    end
   end
 
 end
