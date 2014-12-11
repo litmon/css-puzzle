@@ -7,6 +7,7 @@
 #  updated_at  :datetime
 #  title       :string(255)
 #  description :text
+#  html        :text
 #
 
 class Puzzle < ActiveRecord::Base
