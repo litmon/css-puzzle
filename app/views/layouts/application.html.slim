@@ -9,4 +9,9 @@ html
 body[class="#{controller_name} #{action_name}"]
   nav
     h1 CSS Puzzle
+    ul
+      li = link_to 'Twitterでサインアップ' , user_omniauth_authorize_path(:twitter)
+      li = link_to 'Facebookでサインアップ', user_omniauth_authorize_path(:facebook)
+      li = link_to 'Githubでサインアップ'  , user_omniauth_authorize_path(:github)
+
   = yield
