@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
   def email_required?
     (authentications.empty? || !email.blank?) && super
   end
+
+  def password_required?
+    (authentications.empty? || !email.blank?) && super
+  end
 end
