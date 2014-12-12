@@ -14,4 +14,5 @@ class Puzzle < ActiveRecord::Base
   accepts_nested_attributes_for :styles, limit: 2
 
   validates :title, uniqueness: true
+  validates :html, presence: true
 end
