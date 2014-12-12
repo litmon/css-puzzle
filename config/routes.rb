@@ -7,9 +7,15 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/authentications'
   }
 
-  root 'puzzles#index'
+  devise_scope :users do
+    authenticated :user do
+      root to: 'home#index', as: :authenticated_root
+    end
+    unauthenticated :user do
+      root to: 'welcome#index', as: :unauthenticated_root
+    end
+  end
 
   resources :puzzles
-  resources :properties
 
 end

@@ -25,16 +25,16 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   def redirect_to_next
     if authentication
       sign_in(authentication.user)
-      redirect_to root_path, notice: "User signed in."
+      redirect_to '/', notice: "User signed in."
     elsif user_signed_in?
-      redirect_to root_path, notice: "User has signed in."
+      redirect_to '/', notice: "User has signed in."
     else
       user = User.new(oauth_user_params)
       user.authentications.build(provider: omniauth.provider, uid: omniauth.uid)
 
       if user.save
         sign_in(user)
-        redirect_to root_path, notice: "User created."
+        redirect_to '/', notice: "User created."
       end
 
       redirect_to new_user_session_path, notice: "Could not create the account."
