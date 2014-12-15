@@ -2,3 +2,8 @@ h1 ユーザールートページ
 
 = image_tag current_user.icon, size: '100x100'
 p = current_user.name
+
+ul.puzzles
+  - Puzzle.all.each do |puzzle|
+    - title = puzzle.title.presence || 'タイトルなし'
+    li = link_to title, puzzle_path(puzzle)
