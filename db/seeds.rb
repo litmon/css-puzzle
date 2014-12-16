@@ -76,7 +76,7 @@ Puzzle.create([{
     state: :goal, selectors_attributes: [{
       name: "div", properties_attributes: [{
         name: "border", value: "3px solid #f00"
-      },
+      }],
       name: "p", properties_attributes: [{
         name: "text-size", value: "30px"
       }]
@@ -97,7 +97,7 @@ Puzzle.create([{
   },{
     state: :goal, selectors_attributes: [{
       name: "div", properties_attributes: [{
-        name: "border", value: "1px double #000"
+        name: "border", value: "5px double #0f0"
       },{
         name: "border-radius", value: "15px"
       }]
