@@ -23,6 +23,7 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   end
 
   def redirect_to_next
+    byebug
     if authentication
       sign_in(authentication.user)
       redirect_to '/', notice: "User signed in."
@@ -36,8 +37,6 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
         sign_in(user)
         redirect_to '/', notice: "User created."
       end
-
-      redirect_to new_user_session_path, notice: "Could not create the account."
     end
   end
 
