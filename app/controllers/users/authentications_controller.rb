@@ -23,21 +23,18 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   end
 
   def redirect_to_next
-    byebug
-    if authentication
-      sign_in(authentication.user)
-      redirect_to '/', notice: "User signed in."
-    elsif user_signed_in?
-      redirect_to '/', notice: "User has signed in."
-    else
-      user = User.new(oauth_user_params)
-      user.authentications.build(provider: omniauth.provider, uid: omniauth.uid)
+    redirect_params = user_signed_in? && { path: edit_user_session_path, notice: 'Add authentication' } || { path: authenticated_root_path }
 
-      if user.save
-        sign_in(user)
-        redirect_to '/', notice: "User created."
-      end
+    user = current_user || authentication.try(:user) || User.new(oauth_user_params)
+    auth = authentication || user.authentications.build(provider: omniauth.provider, uid: omniauth.uid)
+
+    if user.save
+        sign_in(user) unless user_signed_in?
+        redirect_to redirect_params[:path], redirect_params.slice(:notice)
+    else
+      redirect_to new_user_session_path
     end
+
   end
 
   def oauth_user_params

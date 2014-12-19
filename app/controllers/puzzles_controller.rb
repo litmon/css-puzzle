@@ -9,6 +9,8 @@ class PuzzlesController < ApplicationController
 
   def show
     @puzzle = Puzzle.find(params[:id])
+    @init = @puzzle.styles.where(state: 0).first.selectors.first.properties.all
+    @goal = @puzzle.styles.where(state: 1).first.selectors.first.properties.all
   end
 
   def new

@@ -12,6 +12,7 @@
 
 class Puzzle < ActiveRecord::Base
   has_many :styles, dependent: :destroy
+  has_many :achievement, dependent: :destroy
   accepts_nested_attributes_for :styles, limit: 2
 
   validates :title, uniqueness: true

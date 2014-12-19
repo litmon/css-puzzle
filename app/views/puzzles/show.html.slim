@@ -1,17 +1,21 @@
+.container#puzzle
+  .preview
+    h2#start START
+    #present
+      .element てきすと
+    h2#goal GOAL
+    canvas#complete[width="580" height="250"]
+  h2#css CSS
+  #editor
+    div div {
+    form
+    div }
+  h2 HTML
+  #html
+    div &lt;div&gt;てきすと&lt;/div&gt;
+  #ans
+    .element
+  javascript:
+    starts = #{raw @init.to_json}
+    goals = #{raw @goal.to_json}
 
-div.puzzle-description[style="color:#fff;font-size: 20px"]
-  p = "id: #{@puzzle.id}"
-  p = "title: #{@puzzle.title}"
-  p = "description: #{@puzzle.description}"
-  
-  div.styles
-    - @puzzle.styles.each do |style|
-      div.style[style="background-color:#005276"]
-        p = "state: #{style.state}"
-        div.selectors
-         - style.selectors.each do |selector|
-           p = "#{selector.name}{"
-           div.properties
-             - selector.properties.each do |property|
-               p = "#{property.name}: #{property.value};"
-           p = "}"

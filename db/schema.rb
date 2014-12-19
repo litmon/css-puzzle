@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211180142) do
+ActiveRecord::Schema.define(version: 20141218043203) do
+
+  create_table "achievements", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "puzzle_id"
+    t.integer  "result"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -19,6 +27,8 @@ ActiveRecord::Schema.define(version: 20141211180142) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
+    t.string   "token_secret"
   end
 
   create_table "properties", force: true do |t|
