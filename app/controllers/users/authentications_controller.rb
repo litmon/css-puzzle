@@ -23,6 +23,8 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   end
 
   def redirect_to_next
+    byebug
+
     redirect_params = user_signed_in? && { path: edit_user_session_path, notice: 'Add authentication' } || { path: authenticated_root_path }
 
     user = current_user || authentication.try(:user) || User.new(oauth_user_params)
@@ -38,12 +40,15 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   end
 
   def oauth_user_params
-    hash = request.env['omniauth.auth'][:info].slice(:name, :nickname, :image)
-    if hash.key?(:nickname)
-      { name: hash[:nickname], icon: hash[:image] }
-    else
-      hash
-    end
+    oauth_user_infos.merge(oauth_tokens)
+  end
+
+  def oauth_user_infos
+    request.env['omniauth.auth'][:info].slice(:name, :image)
+  end
+
+  def oauth_tokens
+    request.env['omniauth.auth'][:credentials].slice(:token, :secret)
   end
 
 end
