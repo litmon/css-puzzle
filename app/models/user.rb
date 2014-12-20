@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:twitter, :facebook, :github]
 
   has_many :authentications, dependent: :destroy
-  has_many :achievement, dependent: :destroy
+  has_many :achievements, dependent: :destroy
+  has_many :puzzles
 
   def email_required?
     (authentications.empty? || !email.blank?) && super

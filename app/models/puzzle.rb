@@ -8,13 +8,16 @@
 #  title       :string(255)
 #  description :text
 #  html        :text
+#  user_id     :integer
 #
 
 class Puzzle < ActiveRecord::Base
+  belongs_to :user
   has_many :styles, dependent: :destroy
-  has_many :achievement, dependent: :destroy
+  has_many :achievements, dependent: :destroy
+
   accepts_nested_attributes_for :styles, limit: 2
 
-  validates :title, uniqueness: true
   validates :html, presence: true
+  validates :title, uniqueness: true
 end

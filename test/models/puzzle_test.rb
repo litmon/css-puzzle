@@ -8,6 +8,7 @@
 #  title       :string(255)
 #  description :text
 #  html        :text
+#  user_id     :integer
 #
 
 require 'test_helper'
