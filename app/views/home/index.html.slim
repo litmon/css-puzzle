@@ -1,9 +1,18 @@
 h1 ユーザールートページ
 
-= image_tag current_user.image, size: '100x100'
-p = current_user.name
+.user-info
+  = image_tag current_user.image, size: '100x100'
+  p
+    |ユーザー名 
+    = current_user.name
 
 ul.puzzles
   - Puzzle.all.each do |puzzle|
     - title = puzzle.title.presence || 'タイトルなし'
     li = link_to title, puzzle_path(puzzle)
+
+.puzzle-new
+  = link_to 'New Puzzle', new_puzzle_path
+
+.user-logout
+  = link_to 'Log out', destroy_user_session_path, method: :destroy 
