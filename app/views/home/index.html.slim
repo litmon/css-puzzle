@@ -9,15 +9,14 @@ h1 ユーザールートページ
   p マイパズル一覧
   - current_user.puzzles.each do |puzzle|
     - title = puzzle.title.presence || 'タイトルなし'
-    = link_to title, puzzle_path(puzzle) 
-    
+    = link_to title, puzzle_path(puzzle), "data-no-turbolink" => ''
 
 ul.puzzles
   - Puzzle.all.each do |puzzle|
     - title = puzzle.title.presence || 'タイトルなし'
     - name = puzzle.user.try(:name) || '名無しのゴンベエさん'
     li 
-      = link_to title, puzzle_path(puzzle)
+      = link_to title, puzzle_path(puzzle), "data-no-turbolink" => ''
       | (#{name})
 
 .puzzle-new
