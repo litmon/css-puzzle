@@ -47,6 +47,8 @@ gem 'pry-stack_explorer'
 gem 'slim', '~> 2.0.3'
 gem 'slim-rails', '~> 2.1.5'
 
+gem 'gon'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

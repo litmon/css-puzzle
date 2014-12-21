@@ -5,12 +5,16 @@ class PuzzlesController < ApplicationController
     @puzzle = Puzzle.find(rand(puzzles_length) + 1)
     @init = @puzzle.styles.where(state: 0).first.selectors.first.properties.all
     @goal = @puzzle.styles.where(state: 1).first.selectors.first.properties.all
+    gon.init = @init
+    gon.goal = @goal
   end
 
   def show
     @puzzle = Puzzle.find(params[:id])
     @init = @puzzle.styles.where(state: 0).first.selectors.first.properties.all
     @goal = @puzzle.styles.where(state: 1).first.selectors.first.properties.all
+    gon.init = @init
+    gon.goal = @goal
   end
 
   def new

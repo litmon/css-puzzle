@@ -1,18 +1,6 @@
 var complete, present;
 var correct=0,clear=0;
 
-var starts = [
-  {"name":'font-size',"value":"20px"},
-  {"name":'border',"value":"1px double #000"},
-  {"name":'border-radius',"value":"0"}
-]
-
-var goals = [
-  {"name":'font-size',"value":"30px"},
-  {"name":'border',"value":"3px solid #f99"},
-  {"name":'border-radius',"value":"6px"}
-]
-
 $(function () {
   complete = $('#ans .element');
   present = $('#present .element');
@@ -45,15 +33,15 @@ $(function () {
 function initialize () {
   var d = new $.Deferred;
   var frm = $('#editor form');
-  clear = starts.length;
-  console.log(starts.length);
-  for (var i = 0; i < starts.length; i++) {
-    present.css(starts[i].name, starts[i].value);
+  clear = gon.init.length;
+  console.log(gon.init.length);
+  for (var i = 0; i < gon.init.length; i++) {
+    present.css(gon.init[i].name, gon.init[i].value);
     var id = "q"+i;
-    var label = $('<label>').attr('for', id).text(starts[i].name);
+    var label = $('<label>').attr('for', id).text(gon.init[i].name);
     var input = $('<input>').attr({
       type: 'text',
-      value: starts[i].value,
+      value: gon.init[i].value,
       id: id,
       name: id
     });
@@ -62,9 +50,9 @@ function initialize () {
     
   }
   var style = "";
-  for (var i = 0; i < goals.length; i++) {
-    complete.css(goals[i].name, goals[i].value);
-    style += goals[i].name + ':' + goals[i].value + ' !important;';
+  for (var i = 0; i < gon.goal.length; i++) {
+    complete.css(gon.goal[i].name, gon.goal[i].value);
+    style += gon.goal[i].name + ':' + gon.goal[i].value + ' !important;';
   };
   console.log(style)
   var canvas = document.getElementById("complete");

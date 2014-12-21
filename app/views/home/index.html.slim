@@ -6,10 +6,19 @@ h1 ユーザールートページ
     |ユーザー名 
     = current_user.name
 
+  p マイパズル一覧
+  - current_user.puzzles.each do |puzzle|
+    - title = puzzle.title.presence || 'タイトルなし'
+    = link_to title, puzzle_path(puzzle) 
+    
+
 ul.puzzles
   - Puzzle.all.each do |puzzle|
     - title = puzzle.title.presence || 'タイトルなし'
-    li = link_to title, puzzle_path(puzzle)
+    - name = puzzle.user.try(:name) || '名無しのゴンベエさん'
+    li 
+      = link_to title, puzzle_path(puzzle)
+      | (#{name})
 
 .puzzle-new
   = link_to 'New Puzzle', new_puzzle_path
