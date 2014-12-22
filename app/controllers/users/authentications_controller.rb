@@ -15,7 +15,9 @@ class Users::AuthenticationsController < Devise::OmniauthCallbacksController
   private
 
   def redirect_to_next
-    redirect_params = user_signed_in? && { path: edit_user_session_path, notice: 'Add authentication' } || { path: authenticated_root_path }
+    redirect_params = user_signed_in? && 
+      { path: edit_user_session_path, notice: 'Add authentication' } || 
+      { path: authenticated_root_path }
 
     user = current_user || authentication.try(:user) || User.new(oauth_user_params)
     auth = authentication || user.authentications.build(omniauth.merge(oauth_tokens))

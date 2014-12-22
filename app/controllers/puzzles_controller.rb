@@ -33,6 +33,7 @@ class PuzzlesController < ApplicationController
 
   def create
     @puzzle = Puzzle.new(puzzle_params)
+    @puzzle.user = current_user
     if @puzzle.save
       redirect_to puzzles_path
     else
@@ -42,12 +43,9 @@ class PuzzlesController < ApplicationController
 
   def delete
     @puzzle = Puzzle.find(params[:id])
+    @puzzle.delete!
 
-    if @puzzle.delete
-
-    else
-
-    end
+    redirect_to puzzles_path
   end
 
   private
