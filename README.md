@@ -2,18 +2,20 @@
 
 CSSをパズル形式で学んでいくゲーム
 
-## 当面のTODO
+## 使用方法
 
-フロントサイドの役割
-* ゲーム本体の設計(入力したものを反映するとか、いろいろ)
-* デザイン
+```
+$ git clone https://github.com/litmon/css-puzzle
+$ bundle install
+$ bundle exec rake db:migrate db:seed
+```
 
-サーバーサイドの役割
-* ゲーム画面へのrouting/controller/viewの作成
-* パズルの問題を保存する
-* どんな役割を持たせるか考える<-New!
+実行する際は、
 
-## 開発目標
-1 issue / week を目標に頑張って開発していこう！
+```
+$ bundle exec rails server
+```
 
-とりあえず、次回のスクールまでにプロトタイプっぽいものが出来上がると最高。
+ルートにアクセスすると、ログイン用のリンクが表示されるのでどれでもいいからログインする。
+
+ログイン後、各パズルへのアクセスリンクが表示される
