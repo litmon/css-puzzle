@@ -37,4 +37,8 @@ class User < ActiveRecord::Base
   def password_required?
     (authentications.empty? || !email.blank?) && super
   end
+
+  def puzzles_grade
+
+  end
 end
