@@ -20,4 +20,18 @@ class Puzzle < ActiveRecord::Base
 
   validates :html, presence: true
   validates :title, uniqueness: true
+
+  def init
+    find_style(:init)
+  end
+
+  def goal
+    find_style(:goal)
+  end
+
+  private
+
+  def find_style(state)
+    self.styles.find_by(state: state)
+  end
 end
