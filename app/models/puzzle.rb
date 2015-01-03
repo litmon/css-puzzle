@@ -22,16 +22,11 @@ class Puzzle < ActiveRecord::Base
   validates :title, uniqueness: true
 
   def init
-    find_style(:init)
+    self.styles.init.first
   end
 
   def goal
-    find_style(:goal)
+    self.styles.goal.first
   end
 
-  private
-
-  def find_style(state)
-    self.styles.find_by(state: state)
-  end
 end
