@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
 
-  def index
+  before_action :authenticate_user!, except: [:welcome]
 
+  def index
+  end
+
+  def welcome
   end
 
 end

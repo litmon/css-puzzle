@@ -44,7 +44,7 @@ Rails.application.routes.draw do
       root to: 'home#index', as: :authenticated_root
     end
     unauthenticated :user do
-      root to: 'welcome#index', as: :unauthenticated_root
+      root to: 'home#welcome', as: :unauthenticated_root
     end
   end
 
