@@ -17,6 +17,8 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.1.0', require: false
   gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'capybara'
+  gem 'ffaker'
 end
 
 group :production do
