@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
   has_many :achievements, dependent: :destroy
   has_many :puzzles
 
+  validates_presence_of :authentications
+
   def email_required?
     (authentications.empty? || !email.blank?) && super
   end
