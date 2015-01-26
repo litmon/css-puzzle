@@ -2,11 +2,11 @@
 #
 # Table name: selectors
 #
-#  id          :integer          not null, primary key
-#  style_id    :integer
-#  name        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id         :integer          not null, primary key
+#  style_id   :integer
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class Selector < ActiveRecord::Base

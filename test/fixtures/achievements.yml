@@ -1,10 +1,11 @@
 # == Schema Information
 #
-# Table name: styles
+# Table name: achievements
 #
 #  id         :integer          not null, primary key
+#  user_id    :integer
 #  puzzle_id  :integer
-#  state      :integer
+#  result     :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -12,11 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user_id: 1
   puzzle_id: 1
-  state: 1
-  selector_id: 1
+  result: 1
 
 two:
+  user_id: 1
   puzzle_id: 1
-  state: 1
-  selector_id: 1
+  result: 1

@@ -2,11 +2,11 @@
 #
 # Table name: styles
 #
-#  id          :integer          not null, primary key
-#  puzzle_id   :integer
-#  state       :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id         :integer          not null, primary key
+#  puzzle_id  :integer
+#  state      :integer
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class Style < ActiveRecord::Base

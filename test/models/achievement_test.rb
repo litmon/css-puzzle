@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: styles
+# Table name: achievements
 #
 #  id         :integer          not null, primary key
+#  user_id    :integer
 #  puzzle_id  :integer
-#  state      :integer
+#  result     :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require 'test_helper'
 
-class StyleTest < ActiveSupport::TestCase
+class AchievementTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

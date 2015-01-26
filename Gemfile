@@ -17,6 +17,8 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.1.0', require: false
   gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'capybara'
+  gem 'ffaker'
 end
 
 group :production do
@@ -47,6 +49,8 @@ gem 'pry-stack_explorer'
 gem 'slim', '~> 2.0.3'
 gem 'slim-rails', '~> 2.1.5'
 
+gem 'gon'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -60,6 +64,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

@@ -7,7 +7,8 @@
 #  updated_at  :datetime
 #  title       :string(255)
 #  description :text
-#  style_id    :integer
+#  html        :text
+#  user_id     :integer
 #
 
 require 'test_helper'

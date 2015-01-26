@@ -15,7 +15,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
 
     if session[:omniauth]
-      omniauth = session[:omniauth]
       resource.authentications.build(session[:omniauth])
     end
   end

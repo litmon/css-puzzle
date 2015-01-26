@@ -3,12 +3,18 @@ class PuzzlesController < ApplicationController
   def index
     puzzles_length = Puzzle.all.size
     @puzzle = Puzzle.find(rand(puzzles_length) + 1)
-    @init = @puzzle.styles.where(state: 0).first.selectors.first.properties.all
-    @goal = @puzzle.styles.where(state: 1).first.selectors.first.properties.all
+    @init = @puzzle.init.selectors.first.properties
+    @goal = @puzzle.goal.selectors.first.properties
+    gon.init = @init
+    gon.goal = @goal
   end
 
   def show
     @puzzle = Puzzle.find(params[:id])
+    @init = @puzzle.init.selectors.first.properties
+    @goal = @puzzle.goal.selectors.first.properties
+    gon.init = @init
+    gon.goal = @goal
   end
 
   def new
@@ -27,6 +33,7 @@ class PuzzlesController < ApplicationController
 
   def create
     @puzzle = Puzzle.new(puzzle_params)
+    @puzzle.user = current_user
     if @puzzle.save
       redirect_to puzzles_path
     else
@@ -36,12 +43,9 @@ class PuzzlesController < ApplicationController
 
   def delete
     @puzzle = Puzzle.find(params[:id])
+    @puzzle.delete!
 
-    if @puzzle.delete
-
-    else
-
-    end
+    redirect_to puzzles_path
   end
 
   private

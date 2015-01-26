@@ -57,5 +57,51 @@ Puzzle.create([{
       }]
     }]
   }]
+},{
+  title: "puzzle4", description: "this is the sample puzzle.", html: "<div><p>てきすと</p></div>",
+  styles_attributes: [{
+    state: :init,
+    selectors_attributes: [{
+      name: "div",
+      properties_attributes: [{
+        name: "border", value: "1px double #000"
+      }]
+    },{
+      name: "p",
+      properties_attributes: [{
+        name: "text-size", value: "20px"
+      }]
+    }]
+  },{
+    state: :goal, selectors_attributes: [{
+      name: "div", properties_attributes: [{
+        name: "border", value: "3px solid #f00"
+      }],
+      name: "p", properties_attributes: [{
+        name: "text-size", value: "30px"
+      }]
+    }]
+  }]
+},{
+  title: "puzzle5", description: "this is the sample puzzle.", html: "<div><p>てきすと</p></div>",
+  styles_attributes: [{
+    state: :init,
+    selectors_attributes: [{
+      name: "div",
+      properties_attributes: [{
+        name: "border", value: "1px double #000"
+      },{
+        name: "border-radius", value: "5px"
+      }]
+    }]
+  },{
+    state: :goal, selectors_attributes: [{
+      name: "div", properties_attributes: [{
+        name: "border", value: "5px double #0f0"
+      },{
+        name: "border-radius", value: "15px"
+      }]
+    }]
+  }]
 }])
 
