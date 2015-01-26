@@ -66,13 +66,31 @@ nav{
 	position: fixed;
 	top: 0;
 	z-index: 1;
+	line-height: 52px;
 
-  
   background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
   background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
   background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
   background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
   background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
+	h1{
+		float: left;
+	}
+  ul{
+  	float: right;
+  	color: #fff;
+  	list-style-type: none;
+  	margin: 0;
+  	margin-right: 18px;
+  }
+  li{
+  	display: inline-block;
+  	margin-left: 18px;
+  	a{
+  		color: #fff;
+  		font-size: 24px;
+  	}
+  }
 }
 
 h1{

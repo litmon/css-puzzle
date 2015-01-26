@@ -10,5 +10,19 @@ html
 body[class="#{controller_name} #{action_name}"]
   nav
     h1 CSS Puzzle
+    - unless user_signed_in?
+      ul
+        li
+          = link_to user_omniauth_authorize_path(:twitter) do 
+            i.fa.fa-twitter
+          end
+        li 
+          = link_to user_omniauth_authorize_path(:facebook) do
+            i.fa.fa-facebook
+          end
+        li
+          = link_to user_omniauth_authorize_path(:github) do
+            i.fa.fa-github
+          end
 
   = yield
