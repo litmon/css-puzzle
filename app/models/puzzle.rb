@@ -18,8 +18,11 @@ class Puzzle < ActiveRecord::Base
 
   accepts_nested_attributes_for :styles, limit: 2
 
+  validates :user, presence: true
   validates :html, presence: true
   validates :title, uniqueness: true
+  validates :styles, presence: true
+  validates :achievements, presence: true
 
   def init
     self.styles.init.first
