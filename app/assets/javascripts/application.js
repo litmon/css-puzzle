@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require vue
 //= require_tree .
+//= require jquery_nested_form

@@ -94,4 +94,4 @@ gem "font-awesome-rails"
 
 gem 'vuejs-rails'
 
-
+gem 'nested_form'

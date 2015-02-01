@@ -1,7 +1,7 @@
 #puzzles-form
   #init-preview
   #goal-preview
-  = form_for @puzzle do |f|
+  = nested_form_for @puzzle do |f|
     - if @puzzle.errors.any?
       #error_explanation
         h2 = "#{pluralize(@puzzle.errors.count, "error")} prohibited this property from being saved:"
@@ -16,12 +16,15 @@
       = f.label :description, '説明'
       = f.text_field :description
 
+    .preview
+      / TODO add preview for creating puzzle.
+
     - @puzzle.styles.each_with_index do |style, idx|
       h2 = Style.states.keys[idx]
       div[id="#{Style.states.keys[idx]}"]
         = f.fields_for :styles, style do |f_style|
           .field
-            = f_style.label :state, Style.states.keys[idx] 
+            = f_style.label :state, Style.states.keys[idx]
             = f_style.hidden_field :state, value: Style.states.keys[idx]
 
           = f_style.fields_for :selectors do |f_selector|
@@ -39,5 +42,12 @@
               .field
                 = f_property.label :value, '値'
                 = f_property.text_field :value
+              = f_property.link_to_remove 'Remove property'
+            = f.link_to_add 'Add property', :properties
+
+    .field
+      p = f.label :html, 'HTML'
+      = f.text_area :html, size: '60x15'
+
 
     .actions = f.submit 'Save'
