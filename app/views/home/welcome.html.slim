@@ -1,6 +1,21 @@
-h1 Welcome#index
+h1 CSS PUZZLE
 
-ul
-  li = link_to 'Facebook ログイン', user_omniauth_authorize_path(:facebook)
-  li = link_to 'Twitter ログイン', user_omniauth_authorize_path(:twitter)
-  li = link_to 'Github ログイン', user_omniauth_authorize_path(:github)
+canvas#canvas[width="400" height="400"]
+
+ul#login
+  li
+    = link_to user_omniauth_authorize_path(:twitter) do
+      i.fa.fa-twitter
+      | twitter
+    end
+
+  li
+    = link_to user_omniauth_authorize_path(:facebook) do
+      i.fa.fa-facebook
+      | facebook
+    end
+  li
+    = link_to user_omniauth_authorize_path(:github) do
+      i.fa.fa-github
+      | github
+    end

@@ -90,8 +90,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# front-end
 gem "font-awesome-rails"
-
 gem 'vuejs-rails'
-
-
