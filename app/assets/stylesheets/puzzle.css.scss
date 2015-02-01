@@ -41,7 +41,7 @@ $gray: #fafafa;
 
 body,html{
 	height: 100%;
-	
+
 }
 body{
 	margin: 0;
@@ -58,40 +58,7 @@ body{
 #puzzle{
 	background: #333;
 }
-nav{
-	height: 52px;
-	background: #fff;
-	width: 100%;
-	box-shadow: 0 1px 1px 0 #e9e9e9;
-	position: fixed;
-	top: 0;
-	z-index: 1;
-	line-height: 52px;
 
-  background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
-	h1{
-		float: left;
-	}
-  ul{
-  	float: right;
-  	color: #fff;
-  	list-style-type: none;
-  	margin: 0;
-  	margin-right: 18px;
-  }
-  li{
-  	display: inline-block;
-  	margin-left: 18px;
-  	a{
-  		color: #fff;
-  		font-size: 24px;
-  	}
-  }
-}
 
 h1{
 	margin: 0;

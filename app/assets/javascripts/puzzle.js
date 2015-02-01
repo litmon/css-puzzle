@@ -1,3 +1,5 @@
+$('.puzzle.index').ready(function () {
+
 var complete, present;
 var correct=0,clear=0;
 
@@ -47,7 +49,7 @@ function initialize () {
     });
     var quiz = $('<div class="property">').append(label).append(input);
     frm.append(quiz);
-    
+
   }
   var style = "";
   for (var i = 0; i < gon.goal.length; i++) {
@@ -84,3 +86,5 @@ function check (property) {
 // function alt () {
 //   alert('右クリックさせないよ');
 // }
+
+});
