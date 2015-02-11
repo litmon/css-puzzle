@@ -1,5 +1,7 @@
 class PuzzlesController < ApplicationController
 
+  before_action :set_puzzle
+
   def index
     puzzles_length = Puzzle.all.size
     @puzzle = Puzzle.find(rand(puzzles_length) + 1)
@@ -52,6 +54,12 @@ class PuzzlesController < ApplicationController
 
   def puzzle_params
     params.require(:puzzle).permit(:title, :description, styles_attributes: [:state, selectors_attributes: [:name, properties_attributes: [:name, :value]]])
+  end
+
+  def set_puzzle
+    if params[:id]
+      @puzzle = Puzzle.find(params[:id])
+    end
   end
 
 end
